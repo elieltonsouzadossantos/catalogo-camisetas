@@ -495,8 +495,14 @@
     mensagem += '\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n';
     mensagem += '\uD83D\uDCB0 *Total: ' + formatarPreco(total) + '*\n\n';
     mensagem += 'Aguardo confirmacao. Obrigado!';
-    var url = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
-   window.location.href = url;
+   var url = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
+var link = document.createElement('a');
+link.href = url;
+link.target = '_blank';
+link.rel = 'noopener noreferrer';
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
   }
 
   function mostrarToast(msg) {
