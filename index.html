@@ -496,7 +496,7 @@
     mensagem += '\uD83D\uDCB0 *Total: ' + formatarPreco(total) + '*\n\n';
     mensagem += 'Aguardo confirmacao. Obrigado!';
     var url = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
-    window.open(url, '_blank');
+   window.location.href = url;
   }
 
   function mostrarToast(msg) {

@@ -1,0 +1,221 @@
+================================================================
+   DOCUMENTAÇÃO TÉCNICA — CATÁLOGO DIGITAL DE CAMISETAS
+================================================================
+
+Projeto:        Catálogo Digital de Camisetas Masculinas
+Autor:          Elielton Souza dos Santos
+Curso:          Engenharia de Software
+Data:           Maio de 2026
+Versão:         1.0.0
+Site:           https://elieltonsouzadossantos.github.io/catalogo-camisetas
+Repositório:    https://github.com/elieltonsouzadossantos/catalogo-camisetas
+
+================================================================
+1. DESCRIÇÃO DO PROJETO
+================================================================
+
+Catálogo digital desenvolvido em HTML, CSS e JavaScript puro,
+sem uso de frameworks ou bibliotecas externas. O projeto simula
+uma loja virtual de camisetas masculinas com funcionalidades
+completas de e-commerce, incluindo carrinho de compras,
+integração com WhatsApp e publicação via GitHub Pages.
+
+================================================================
+2. TECNOLOGIAS UTILIZADAS
+================================================================
+
+Frontend:
+  - HTML5               → estrutura e semântica das páginas
+  - CSS3                → estilização, animações e responsividade
+  - JavaScript (ES6)    → interatividade e lógica do carrinho
+
+Tipografia:
+  - Cormorant Garamond  → títulos e elementos de destaque
+  - Jost                → textos e interface geral
+  - Google Fonts        → carregamento das fontes via CDN
+
+Hospedagem:
+  - GitHub Pages        → hospedagem gratuita e estática
+  - GitHub              → controle de versão e repositório
+
+Ferramentas:
+  - Git 2.53.0          → controle de versão
+  - VS Code             → editor de código
+  - Terminal CMD        → comandos Git
+
+================================================================
+3. ESTRUTURA DE ARQUIVOS
+================================================================
+
+CATALOGO_DIGITAL/
+├── index.html          → página principal do catálogo
+├── documentacao.txt    → este arquivo
+├── Links.txt           → links do projeto
+└── imagens/            → pasta com fotos dos produtos
+    ├── camiseta1.jpg
+    ├── camiseta2.jpg
+    ├── camiseta3.jpg
+    ├── camiseta4.jpg
+    ├── camiseta5.jpg
+    ├── camiseta6.jpg
+    ├── camiseta7.jpg
+    ├── camiseta8.jpg
+    ├── camiseta9.jpg
+    ├── camiseta10.jpg
+    ├── camiseta11.jpg
+    ├── camiseta12.jpg
+    ├── camiseta13.jpg
+    ├── camiseta14.jpg
+    └── camiseta15.jpg
+
+================================================================
+4. FUNCIONALIDADES IMPLEMENTADAS
+================================================================
+
+4.1 INTERFACE VISUAL
+    [x] Design clássico e elegante com paleta preto/creme/dourado
+    [x] Tipografia refinada com fontes Google Fonts
+    [x] Layout responsivo para desktop, tablet e celular
+    [x] Hero section com título e subtítulo
+    [x] Rodapé com informações da loja
+
+4.2 HEADER
+    [x] Logo da loja
+    [x] Barra de busca em tempo real
+    [x] Botão de carrinho com contador de itens
+
+4.3 CARDS DE PRODUTOS
+    [x] Imagens com proporção 3:4 estilo magazine
+    [x] Efeito hover com zoom suave na imagem
+    [x] Badges de destaque (Novo / Oferta / Mais Vendido)
+    [x] Avaliação com estrelas douradas (1 a 5)
+    [x] Nome, descrição e preço formatado
+    [x] Botão "Adicionado" com feedback visual verde
+
+4.4 ZOOM DE IMAGENS
+    [x] Modal escuro ao clicar na imagem
+    [x] Exibe nome e preço do produto
+    [x] Fecha clicando no fundo, no botão ou tecla ESC
+    [x] Scroll da página travado enquanto modal aberto
+
+4.5 FILTROS
+    [x] Filtro por categoria (Básica, Polo, Estampada,
+        Esportiva, Especial)
+    [x] Filtro por faixa de preço
+    [x] Ordenação (menor preço, maior preço, A-Z)
+    [x] Busca por nome em tempo real
+    [x] Contador de resultados
+
+4.6 CARRINHO DE COMPRAS
+    [x] Painel lateral deslizante da direita
+    [x] Adicionar produtos ao carrinho
+    [x] Aumentar e diminuir quantidade
+    [x] Remover itens individualmente
+    [x] Cálculo automático do total
+    [x] Estado vazio com mensagem informativa
+
+4.7 INTEGRAÇÃO WHATSAPP
+    [x] Modal solicitando nome do cliente
+    [x] Validação de campo obrigatório
+    [x] Mensagem automática formatada com:
+        - Nome do cliente
+        - Lista de produtos pedidos
+        - Quantidade e preço unitário
+        - Total do pedido
+    [x] Redirecionamento para WhatsApp via wa.me
+
+4.8 BOTÃO FLUTUANTE WHATSAPP
+    [x] Ícone SVG verde fixo no canto inferior direito
+    [x] Tooltip "Fale conosco" ao passar o mouse
+    [x] Efeito hover com escala e sombra
+    [x] Link direto para WhatsApp com mensagem pré-definida
+
+4.9 NOTIFICAÇÕES
+    [x] Toast notification ao adicionar produto ao carrinho
+    [x] Mensagem de carrinho vazio ao tentar finalizar
+
+================================================================
+5. PALETA DE CORES
+================================================================
+
+  --preto:   #0e0e0e   → fundo do header e hero
+  --creme:   #f5f0e8   → fundo de seções secundárias
+  --ouro:    #b89a5a   → cor de destaque principal
+  --ouro2:   #d4b87a   → cor de destaque secundária
+  --cinza:   #6b6b6b   → textos secundários
+  --cinza2:  #e8e3d8   → bordas e separadores
+  --branco:  #fdfaf4   → fundo principal
+
+================================================================
+6. RESPONSIVIDADE
+================================================================
+
+  Desktop  (> 901px)  → 4 colunas no grid de produtos
+  Tablet   (601-900px)→ 2 colunas no grid de produtos
+  Celular  (< 600px)  → 1 coluna, busca oculta no header,
+                         carrinho ocupa tela inteira
+
+================================================================
+7. CONTATO WHATSAPP
+================================================================
+
+  Número:   +55 73 99120-3415
+  Link:     https://wa.me/5573991203415
+
+================================================================
+8. COMANDOS GIT UTILIZADOS
+================================================================
+
+  # Configuração inicial
+  git config --global user.name "Elielton Souza dos Santos"
+  git config --global user.email "s.elielton@yahoo.com"
+
+  # Publicação inicial
+  git init
+  git add .
+  git commit -m "Primeiro commit - catalogo de camisetas"
+  git branch -M main
+  git remote add origin https://github.com/elieltonsouzadossantos/catalogo-camisetas.git
+  git push -u origin main
+
+  # Correção nome da pasta imagens
+  git mv IMAGENS imagens_temp
+  git mv imagens_temp imagens
+  git commit -m "Corrigindo nome da pasta imagens"
+  git push
+
+  # Atualizações futuras
+  git add .
+  git commit -m "Descricao da atualizacao"
+  git push
+
+================================================================
+9. APRENDIZADOS DO PROJETO
+================================================================
+
+  - Estruturação de páginas com HTML5 semântico
+  - Estilização avançada com CSS3 (Grid, Flexbox, variáveis)
+  - Animações e transições CSS
+  - Manipulação do DOM com JavaScript puro
+  - Lógica de carrinho de compras sem frameworks
+  - Integração com API do WhatsApp via wa.me
+  - Controle de versão com Git e GitHub
+  - Publicação de site estático com GitHub Pages
+  - Resolução de problemas (case sensitive no Linux/GitHub)
+
+================================================================
+10. MELHORIAS FUTURAS
+================================================================
+
+  [ ] Adicionar campo de tamanho (P, M, G, GG)
+  [ ] Adicionar campo de cor do produto
+  [ ] Implementar página de detalhes do produto
+  [ ] Adicionar sistema de cupom de desconto
+  [ ] Integrar com banco de dados
+  [ ] Criar painel administrativo para gerenciar produtos
+  [ ] Adicionar sistema de login do cliente
+  [ ] Implementar pagamento online
+
+================================================================
+   FIM DA DOCUMENTAÇÃO — VERSÃO 1.0.0
+================================================================
