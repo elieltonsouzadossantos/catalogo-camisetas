@@ -56,24 +56,41 @@
     .produto-info { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
     .produto h2 { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 500; line-height: 1.3; color: var(--preto); }
     .produto-desc { font-size: 12px; color: var(--cinza); letter-spacing: 0.5px; line-height: 1.5; }
-
-    /* TAMANHOS */
     .tamanhos { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
     .tamanho-btn { background: none; border: 1px solid var(--cinza2); color: var(--cinza); padding: 4px 10px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 1px; cursor: pointer; transition: all 0.15s; }
     .tamanho-btn:hover { border-color: var(--preto); color: var(--preto); }
     .tamanho-btn.ativo { background: var(--preto); border-color: var(--preto); color: #fff; }
-
-    /* CORES */
     .cores { display: flex; gap: 8px; align-items: center; }
     .cor-btn { width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: all 0.15s; outline: none; }
     .cor-btn:hover { transform: scale(1.15); }
     .cor-btn.ativo { border-color: var(--preto); transform: scale(1.15); }
-
     .produto-rodape { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--cinza2); }
     .preco { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--preto); letter-spacing: 1px; }
     .btn-comprar { display: flex; align-items: center; gap: 6px; background: #25d366; color: #fff; text-decoration: none; padding: 10px 16px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: background 0.2s; white-space: nowrap; }
     .btn-comprar:hover { background: #1ebe5d; color: #fff; }
     .btn-comprar svg { width: 14px; height: 14px; fill: #fff; flex-shrink: 0; }
+
+    /* DEPOIMENTOS */
+    .depoimentos { background: var(--creme); padding: 70px 40px; text-align: center; }
+    .dep-topo { margin-bottom: 48px; }
+    .dep-eyebrow { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--ouro); margin-bottom: 12px; }
+    .dep-titulo { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 4vw, 38px); font-weight: 400; color: var(--preto); letter-spacing: 2px; margin-bottom: 16px; }
+    .dep-linha { width: 50px; height: 1px; background: var(--ouro); margin: 0 auto; }
+    .dep-wrapper { position: relative; display: flex; align-items: center; max-width: 1100px; margin: 0 auto; gap: 16px; overflow: hidden; }
+    .dep-trilho { display: flex; gap: 20px; width: 100%; transition: transform 0.4s ease; }
+    .dep-card { background: var(--branco); border: 1px solid var(--cinza2); border-radius: 4px; padding: 32px 28px; min-width: calc(33.333% - 14px); flex-shrink: 0; text-align: left; transition: box-shadow 0.2s; }
+    .dep-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+    .dep-estrelas { color: var(--ouro); font-size: 18px; letter-spacing: 3px; margin-bottom: 16px; }
+    .dep-texto { font-size: 13px; color: var(--cinza); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .dep-autor { display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--cinza2); padding-top: 16px; }
+    .dep-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--preto); color: var(--ouro2); font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .dep-nome { font-size: 13px; font-weight: 500; color: var(--preto); letter-spacing: 1px; }
+    .dep-cargo { font-size: 10px; color: var(--cinza); letter-spacing: 2px; text-transform: uppercase; margin-top: 3px; }
+    .dep-seta { background: var(--branco); border: 1px solid var(--cinza2); color: var(--preto); width: 44px; height: 44px; border-radius: 50%; cursor: pointer; font-size: 18px; flex-shrink: 0; transition: all 0.2s; display: flex; align-items: center; justify-content: center; z-index: 2; }
+    .dep-seta:hover { background: var(--preto); color: var(--ouro2); border-color: var(--preto); }
+    .dep-bolinhas { display: flex; justify-content: center; gap: 8px; margin-top: 32px; }
+    .dep-bolinha { width: 8px; height: 8px; border-radius: 50%; background: var(--cinza2); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
+    .dep-bolinha.ativa { background: var(--ouro); width: 24px; border-radius: 4px; }
 
     /* ZOOM MODAL */
     #zoom-overlay { display: none; position: fixed; inset: 0; background: rgba(10,10,10,0.95); z-index: 9999; cursor: zoom-out; align-items: center; justify-content: center; flex-direction: column; gap: 20px; }
@@ -106,6 +123,12 @@
       .catalogo { grid-template-columns: repeat(2, 1fr); }
       .hero { padding: 40px 16px 32px; }
       #wpp-float { bottom: 18px; right: 18px; width: 52px; height: 52px; }
+      .depoimentos { padding: 50px 16px; }
+      .dep-card { min-width: 100%; }
+      .dep-seta { display: none; }
+    }
+    @media (min-width: 701px) and (max-width: 900px) {
+      .dep-card { min-width: calc(50% - 10px); }
     }
   </style>
 </head>
@@ -155,6 +178,88 @@
 
 <div class="catalogo" id="catalogo"></div>
 
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <div class="dep-topo">
+    <p class="dep-eyebrow">Depoimentos</p>
+    <h2 class="dep-titulo">O Que Nossos Clientes Dizem</h2>
+    <div class="dep-linha"></div>
+  </div>
+  <div class="dep-wrapper">
+    <button class="dep-seta" onclick="moverDep(-1)">&#8592;</button>
+    <div class="dep-trilho" id="dep-trilho">
+      <div class="dep-card">
+        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="dep-texto">"Qualidade incrível! A camiseta chegou rápido, o tecido é macio e o caimento é perfeito. Com certeza voltarei a comprar mais vezes!"</p>
+        <div class="dep-autor">
+          <div class="dep-avatar">LM</div>
+          <div>
+            <p class="dep-nome">Lucas Mendes</p>
+            <p class="dep-cargo">Cliente</p>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="dep-texto">"Atendimento excelente e entrega super rápida. A Camiseta Polo superou minhas expectativas, recomendo demais para todos!"</p>
+        <div class="dep-autor">
+          <div class="dep-avatar">FS</div>
+          <div>
+            <p class="dep-nome">Fernando Silva</p>
+            <p class="dep-cargo">Cliente</p>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="dep-texto">"Melhor loja de camisetas que já comprei! Produto de alta qualidade, preço justo e atendimento nota 10. Parabéns pela excelência!"</p>
+        <div class="dep-autor">
+          <div class="dep-avatar">RC</div>
+          <div>
+            <p class="dep-nome">Rafael Costa</p>
+            <p class="dep-cargo">Cliente</p>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="dep-texto">"Comprei a Camiseta Slim Fit e fiquei impressionado com a qualidade. Ficou perfeita no corpo e as cores são lindas. Super recomendo!"</p>
+        <div class="dep-autor">
+          <div class="dep-avatar">AM</div>
+          <div>
+            <p class="dep-nome">André Martins</p>
+            <p class="dep-cargo">Cliente</p>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="dep-texto">"Produto chegou antes do prazo, embalagem caprichada e a camiseta é lindíssima. Já indiquei para vários amigos e todos adoraram!"</p>
+        <div class="dep-autor">
+          <div class="dep-avatar">JP</div>
+          <div>
+            <p class="dep-nome">João Pedro</p>
+            <p class="dep-cargo">Cliente</p>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="dep-texto">"Comprei a Dry Fit para academia e amei! Tecido leve, confortável e não deforma após as lavagens. Vale muito o investimento!"</p>
+        <div class="dep-autor">
+          <div class="dep-avatar">GT</div>
+          <div>
+            <p class="dep-nome">Gabriel Torres</p>
+            <p class="dep-cargo">Cliente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="dep-seta" onclick="moverDep(1)">&#8594;</button>
+  </div>
+  <div class="dep-bolinhas" id="dep-bolinhas"></div>
+</section>
+
 <footer>&copy; 2026 <span>Loro Masculina</span> &mdash; Todos os direitos reservados</footer>
 
 <a id="wpp-float" href="https://wa.me/5573991203415?text=Ol%C3%A1!%20Vim%20pelo%20cat%C3%A1logo%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" title="Fale conosco no WhatsApp">
@@ -195,7 +300,7 @@
   ];
 
   var tamanhos = ['P', 'M', 'G', 'GG'];
-  var selecoes = {}; // guarda tamanho e cor selecionados por produto
+  var selecoes = {};
 
   function renderEstrelas(n) {
     return [1,2,3,4,5].map(i => '<span class="estrela' + (i > n ? ' vazia' : '') + '">&#9733;</span>').join('');
@@ -212,16 +317,7 @@
   }
 
   function nomeCor(hex) {
-    var mapa = {
-      '#0e0e0e': 'Preta',
-      '#ffffff': 'Branca',
-      '#1a3a5c': 'Azul Marinho',
-      '#8b1a1a': 'Vermelha',
-      '#2d6a2d': 'Verde',
-      '#4a4a4a': 'Cinza',
-      '#4a4a8a': 'Azul Royal',
-      '#c8b89a': 'Bege'
-    };
+    var mapa = { '#0e0e0e':'Preta', '#ffffff':'Branca', '#1a3a5c':'Azul Marinho', '#8b1a1a':'Vermelha', '#2d6a2d':'Verde', '#4a4a4a':'Cinza', '#4a4a8a':'Azul Royal', '#c8b89a':'Bege' };
     return mapa[hex] || hex;
   }
 
@@ -230,36 +326,24 @@
     var sel = selecoes[id] || {};
     var tamanho = sel.tamanho || 'nao informado';
     var cor = sel.cor ? nomeCor(sel.cor) : 'nao informada';
-    var preco = formatarPreco(p.preco);
-    var texto = 'Ola! Tenho interesse na ' + p.nome +
-      ' — Tamanho: ' + tamanho +
-      ' — Cor: ' + cor +
-      ' — Preco: ' + preco +
-      '. Poderia confirmar disponibilidade?';
+    var texto = 'Ola! Tenho interesse na ' + p.nome + ' — Tamanho: ' + tamanho + ' — Cor: ' + cor + ' — Preco: ' + formatarPreco(p.preco) + '. Poderia confirmar disponibilidade?';
     return 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(texto);
   }
 
   function selecionarTamanho(id, tam) {
     if (!selecoes[id]) selecoes[id] = {};
     selecoes[id].tamanho = tam;
-    var btns = document.querySelectorAll('#tam-' + id + ' .tamanho-btn');
-    btns.forEach(function(b){ b.classList.remove('ativo'); });
+    document.querySelectorAll('#tam-' + id + ' .tamanho-btn').forEach(function(b){ b.classList.remove('ativo'); });
     document.getElementById('tam-' + id + '-' + tam).classList.add('ativo');
-    atualizarLink(id);
+    document.getElementById('link-' + id).href = gerarLink(id);
   }
 
   function selecionarCor(id, cor) {
     if (!selecoes[id]) selecoes[id] = {};
     selecoes[id].cor = cor;
-    var btns = document.querySelectorAll('#cor-' + id + ' .cor-btn');
-    btns.forEach(function(b){ b.classList.remove('ativo'); });
+    document.querySelectorAll('#cor-' + id + ' .cor-btn').forEach(function(b){ b.classList.remove('ativo'); });
     document.getElementById('cor-' + id + '-' + cor.replace('#','')).classList.add('ativo');
-    atualizarLink(id);
-  }
-
-  function atualizarLink(id) {
-    var link = document.getElementById('link-' + id);
-    if (link) link.href = gerarLink(id);
+    document.getElementById('link-' + id).href = gerarLink(id);
   }
 
   function renderTamanhos(id) {
@@ -267,8 +351,7 @@
     tamanhos.forEach(function(t) {
       html += '<button class="tamanho-btn" id="tam-' + id + '-' + t + '" onclick="selecionarTamanho(' + id + ',\'' + t + '\')">' + t + '</button>';
     });
-    html += '</div>';
-    return html;
+    return html + '</div>';
   }
 
   function renderCores(id, cores) {
@@ -277,24 +360,18 @@
       var borda = c === '#ffffff' ? 'border:2px solid #e8e3d8;' : '';
       html += '<button class="cor-btn" id="cor-' + id + '-' + c.replace('#','') + '" style="background:' + c + ';' + borda + '" onclick="selecionarCor(' + id + ',\'' + c + '\')" title="' + nomeCor(c) + '"></button>';
     });
-    html += '</div>';
-    return html;
+    return html + '</div>';
   }
 
   function renderProdutos(lista) {
     const el = document.getElementById('catalogo');
-    document.getElementById('resultado-count').textContent =
-      lista.length + ' produto' + (lista.length !== 1 ? 's' : '');
-    if (lista.length === 0) {
-      el.innerHTML = '<div class="sem-resultado"><p>Nenhum produto encontrado.</p></div>';
-      return;
-    }
+    document.getElementById('resultado-count').textContent = lista.length + ' produto' + (lista.length !== 1 ? 's' : '');
+    if (lista.length === 0) { el.innerHTML = '<div class="sem-resultado"><p>Nenhum produto encontrado.</p></div>'; return; }
     el.innerHTML = lista.map(function(p) {
-      var precoFormatado = formatarPreco(p.preco);
-      var linkInicial = gerarLink(p.id);
+      var pf = formatarPreco(p.preco);
       return '<div class="produto" id="prod-' + p.id + '">' +
         renderBadge(p.badge) +
-        '<div class="img-wrap" onclick="abrirZoom(\'' + p.img + '\',\'' + p.nome + '\',\'' + precoFormatado + '\')">' +
+        '<div class="img-wrap" onclick="abrirZoom(\'' + p.img + '\',\'' + p.nome + '\',\'' + pf + '\')">' +
           '<img src="' + p.img + '" alt="' + p.nome + '" loading="lazy">' +
           '<div class="img-overlay"><span class="zoom-hint">Ampliar imagem</span></div>' +
         '</div>' +
@@ -305,8 +382,8 @@
           renderTamanhos(p.id) +
           renderCores(p.id, p.cores) +
           '<div class="produto-rodape">' +
-            '<span class="preco">' + precoFormatado + '</span>' +
-            '<a id="link-' + p.id + '" class="btn-comprar" href="' + linkInicial + '" target="_blank">' +
+            '<span class="preco">' + pf + '</span>' +
+            '<a id="link-' + p.id + '" class="btn-comprar" href="' + gerarLink(p.id) + '" target="_blank">' +
               '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.494 2.027 7.807L0 32l8.418-2.01A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.74-1.833l-.484-.287-5.002 1.194 1.227-4.87-.316-.502A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.352-1.16-2.717-1.292-.364-.133-.63-.199-.895.199-.265.398-1.028 1.292-1.26 1.558-.232.265-.464.298-.862.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.056-1.983-2.36-2.215-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.697.2-.232.265-.398.398-.663.133-.265.066-.497-.033-.697-.1-.199-.895-2.157-1.227-2.953-.323-.775-.65-.67-.895-.683l-.762-.013c-.265 0-.696.1-1.06.497-.364.398-1.39 1.358-1.39 3.313 0 1.955 1.423 3.844 1.622 4.109.199.265 2.8 4.274 6.786 5.993.949.41 1.69.654 2.267.838.952.303 1.819.26 2.504.158.764-.114 2.352-.962 2.684-1.89.332-.928.332-1.724.232-1.89-.1-.166-.364-.265-.762-.464z"/></svg>' +
               ' Comprar' +
             '</a>' +
@@ -324,11 +401,7 @@
     const ordem = document.getElementById('filtro-ordem').value;
     if (busca) lista = lista.filter(function(p){ return p.nome.toLowerCase().includes(busca); });
     if (cat)   lista = lista.filter(function(p){ return p.cat === cat; });
-    if (preco) {
-      var parts = preco.split('-');
-      var min = Number(parts[0]), max = Number(parts[1]);
-      lista = lista.filter(function(p){ return p.preco >= min && p.preco <= max; });
-    }
+    if (preco) { var parts = preco.split('-'); lista = lista.filter(function(p){ return p.preco >= Number(parts[0]) && p.preco <= Number(parts[1]); }); }
     if (ordem === 'menor') lista.sort(function(a,b){ return a.preco - b.preco; });
     if (ordem === 'maior') lista.sort(function(a,b){ return b.preco - a.preco; });
     if (ordem === 'nome')  lista.sort(function(a,b){ return a.nome.localeCompare(b.nome); });
@@ -349,12 +422,58 @@
   }
 
   document.getElementById('zoom-img').addEventListener('click', function(e){ e.stopPropagation(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') fecharZoom(); });
 
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') fecharZoom();
-  });
+  // DEPOIMENTOS
+  var depAtual = 0;
+
+  function depPorTela() {
+    return window.innerWidth <= 700 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+  }
+
+  function totalPaginas() {
+    return Math.ceil(6 / depPorTela());
+  }
+
+  function iniciarBolinhas() {
+    var cont = document.getElementById('dep-bolinhas');
+    cont.innerHTML = '';
+    for (var i = 0; i < totalPaginas(); i++) {
+      var b = document.createElement('button');
+      b.className = 'dep-bolinha' + (i === 0 ? ' ativa' : '');
+      b.setAttribute('data-idx', i);
+      b.addEventListener('click', function(){ irDep(Number(this.getAttribute('data-idx'))); });
+      cont.appendChild(b);
+    }
+  }
+
+  function moverDep(direcao) {
+    depAtual += direcao;
+    if (depAtual < 0) depAtual = totalPaginas() - 1;
+    if (depAtual >= totalPaginas()) depAtual = 0;
+    aplicarDep();
+  }
+
+  function irDep(idx) {
+    depAtual = idx;
+    aplicarDep();
+  }
+
+  function aplicarDep() {
+    var trilho = document.getElementById('dep-trilho');
+    var card = trilho.querySelector('.dep-card');
+    if (!card) return;
+    var larguraCard = card.offsetWidth + 20;
+    trilho.style.transform = 'translateX(-' + (depAtual * depPorTela() * larguraCard) + 'px)';
+    document.querySelectorAll('.dep-bolinha').forEach(function(b, i){
+      b.classList.toggle('ativa', i === depAtual);
+    });
+  }
+
+  window.addEventListener('resize', function(){ depAtual = 0; iniciarBolinhas(); aplicarDep(); });
 
   renderProdutos(produtos);
+  iniciarBolinhas();
 </script>
 </body>
 </html>
