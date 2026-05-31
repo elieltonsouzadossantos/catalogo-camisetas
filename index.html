@@ -100,23 +100,9 @@
     .carrinho-subtotal span:first-child { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cinza); }
     .carrinho-subtotal strong { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--preto); }
     .btn-finalizar { width: 100%; background: #25d366; color: #fff; border: none; padding: 16px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s; margin-bottom: 8px; display: block; text-align: center; text-decoration: none; }
-    .btn-finalizar:hover { background: #1ebe5d; }
+    .btn-finalizar:hover { background: #1ebe5d; color: #fff; }
     .btn-continuar { width: 100%; background: none; color: var(--cinza); border: 1px solid var(--cinza2); padding: 12px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
     .btn-continuar:hover { border-color: var(--preto); color: var(--preto); }
-    #modal-nome-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 9998; align-items: center; justify-content: center; }
-    #modal-nome-overlay.ativo { display: flex; }
-    .modal-nome-box { background: var(--branco); padding: 36px 32px; border-radius: 4px; width: 90%; max-width: 400px; border-top: 3px solid var(--ouro); }
-    .modal-nome-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; margin-bottom: 6px; }
-    .modal-nome-box p { font-size: 12px; color: var(--cinza); letter-spacing: 1px; margin-bottom: 24px; }
-    .modal-nome-box input { width: 100%; border: 1px solid var(--cinza2); padding: 12px 14px; font-family: 'Jost', sans-serif; font-size: 14px; border-radius: 2px; outline: none; margin-bottom: 12px; transition: border-color 0.2s; background: #fff; }
-    .modal-nome-box input:focus { border-color: var(--ouro); }
-    .modal-nome-box input.erro { border-color: #8b1a1a; }
-    .modal-nome-erro { font-size: 11px; color: #8b1a1a; letter-spacing: 1px; margin-bottom: 14px; display: none; }
-    .modal-nome-erro.visivel { display: block; }
-    .btn-enviar-wpp { width: 100%; background: #25d366; color: #fff; border: none; padding: 14px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s; margin-bottom: 8px; }
-    .btn-enviar-wpp:hover { background: #1ebe5d; }
-    .btn-cancelar-modal { width: 100%; background: none; color: var(--cinza); border: 1px solid var(--cinza2); padding: 10px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
-    .btn-cancelar-modal:hover { border-color: var(--preto); color: var(--preto); }
     #wpp-float { position: fixed; bottom: 28px; right: 28px; z-index: 8000; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.5); transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; }
     #wpp-float:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(37,211,102,0.7); }
     #wpp-float svg { width: 32px; height: 32px; fill: #fff; }
@@ -224,19 +210,13 @@
       <span>Total</span>
       <strong id="carrinho-total">R$ 0,00</strong>
     </div>
-    <a id="btn-finalizar-wpp" class="btn-finalizar" href="#" onclick="prepararPedido(event)">&#9989; Finalizar Pedido no WhatsApp</a>
+    <a class="btn-finalizar"
+       href="https://wa.me/5573991203415?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20pelo%20cat%C3%A1logo."
+       target="_blank"
+       onclick="verificarCarrinho(event)">
+      &#9989; Finalizar Pedido no WhatsApp
+    </a>
     <button class="btn-continuar" onclick="fecharCarrinho()">Continuar Comprando</button>
-  </div>
-</div>
-
-<div id="modal-nome-overlay" onclick="fecharModalNome()">
-  <div class="modal-nome-box" onclick="event.stopPropagation()">
-    <h3>Antes de finalizar...</h3>
-    <p>Informe seu nome para o pedido</p>
-    <input type="text" id="input-nome-cliente" placeholder="Seu nome completo" onkeydown="if(event.key==='Enter') confirmarPedido()">
-    <div class="modal-nome-erro" id="erro-nome">Por favor, informe seu nome!</div>
-    <button class="btn-enviar-wpp" onclick="confirmarPedido()">&#128172; Enviar pelo WhatsApp</button>
-    <button class="btn-cancelar-modal" onclick="fecharModalNome()">Cancelar</button>
   </div>
 </div>
 
@@ -409,60 +389,11 @@
     document.body.style.overflow = '';
   }
 
-  function fecharModalNome() {
-    document.getElementById('modal-nome-overlay').classList.remove('ativo');
-    document.body.style.overflow = '';
-  }
-
-  function montarMensagem(nome) {
-    var mensagem = '\uD83D\uDED2 *Ola! Gostaria de fazer um pedido:*\n\n';
-    mensagem += '\uD83D\uDC64 *Cliente: ' + nome + '*\n\n';
-    carrinho.forEach(function(item) {
-      mensagem += '\u25AA\uFE0F *' + item.nome + '*\n';
-      mensagem += '   Qtd: ' + item.qty + ' x ' + formatarPreco(item.preco) + '\n\n';
-    });
-    var total = 0;
-    carrinho.forEach(function(item){ total += item.preco * item.qty; });
-    mensagem += '\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n';
-    mensagem += '\uD83D\uDCB0 *Total: ' + formatarPreco(total) + '*\n\n';
-    mensagem += 'Aguardo confirmacao. Obrigado!';
-    return mensagem;
-  }
-
-  function prepararPedido(e) {
-    e.preventDefault();
+  function verificarCarrinho(e) {
     if (carrinho.length === 0) {
+      e.preventDefault();
       mostrarToast('Seu carrinho esta vazio!');
-      return;
     }
-    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (isMobile) {
-      var mensagem = montarMensagem('Cliente');
-      var url = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
-      window.location.href = url;
-    } else {
-      var input = document.getElementById('input-nome-cliente');
-      input.value = '';
-      input.classList.remove('erro');
-      document.getElementById('erro-nome').classList.remove('visivel');
-      document.getElementById('modal-nome-overlay').classList.add('ativo');
-      document.body.style.overflow = 'hidden';
-      setTimeout(function(){ input.focus(); }, 100);
-    }
-}
-
-  function confirmarPedido() {
-    var input = document.getElementById('input-nome-cliente');
-    var nome = input.value.trim();
-    if (!nome) {
-      input.classList.add('erro');
-      document.getElementById('erro-nome').classList.add('visivel');
-      input.focus();
-      return;
-    }
-    fecharModalNome();
-    var mensagem = montarMensagem(nome);
-    window.location.href = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
   }
 
   function mostrarToast(msg) {
@@ -473,7 +404,7 @@
   }
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') { fecharZoom(); fecharCarrinho(); fecharModalNome(); }
+    if (e.key === 'Escape') { fecharZoom(); fecharCarrinho(); }
   });
 
   renderProdutos(produtos);
