@@ -438,10 +438,8 @@
     var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     if (isMobile) {
       var mensagem = montarMensagem('Cliente');
-      var btn = document.getElementById('btn-finalizar-wpp');
-      btn.href = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
-      btn.removeAttribute('onclick');
-      btn.click();
+      var url = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
+      window.location.href = url;
     } else {
       var input = document.getElementById('input-nome-cliente');
       input.value = '';
@@ -451,7 +449,7 @@
       document.body.style.overflow = 'hidden';
       setTimeout(function(){ input.focus(); }, 100);
     }
-  }
+}
 
   function confirmarPedido() {
     var input = document.getElementById('input-nome-cliente');
