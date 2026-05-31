@@ -99,7 +99,7 @@
     .carrinho-subtotal { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
     .carrinho-subtotal span:first-child { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cinza); }
     .carrinho-subtotal strong { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--preto); }
-    .btn-finalizar { width: 100%; background: #25d366; color: #fff; border: none; padding: 16px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s; margin-bottom: 8px; }
+    .btn-finalizar { width: 100%; background: #25d366; color: #fff; border: none; padding: 16px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s; margin-bottom: 8px; display: block; text-align: center; text-decoration: none; }
     .btn-finalizar:hover { background: #1ebe5d; }
     .btn-continuar { width: 100%; background: none; color: var(--cinza); border: 1px solid var(--cinza2); padding: 12px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
     .btn-continuar:hover { border-color: var(--preto); color: var(--preto); }
@@ -224,7 +224,7 @@
       <span>Total</span>
       <strong id="carrinho-total">R$ 0,00</strong>
     </div>
-    <button class="btn-finalizar" onclick="finalizarPedido()">&#9989; Finalizar Pedido no WhatsApp</button>
+    <a id="btn-finalizar-wpp" class="btn-finalizar" href="#" onclick="prepararPedido(event)">&#9989; Finalizar Pedido no WhatsApp</a>
     <button class="btn-continuar" onclick="fecharCarrinho()">Continuar Comprando</button>
   </div>
 </div>
@@ -414,7 +414,7 @@
     document.body.style.overflow = '';
   }
 
-  function enviarWhatsApp(nome) {
+  function montarMensagem(nome) {
     var mensagem = '\uD83D\uDED2 *Ola! Gostaria de fazer um pedido:*\n\n';
     mensagem += '\uD83D\uDC64 *Cliente: ' + nome + '*\n\n';
     carrinho.forEach(function(item) {
@@ -426,17 +426,22 @@
     mensagem += '\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n';
     mensagem += '\uD83D\uDCB0 *Total: ' + formatarPreco(total) + '*\n\n';
     mensagem += 'Aguardo confirmacao. Obrigado!';
-    window.location.href = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
+    return mensagem;
   }
 
-  function finalizarPedido() {
+  function prepararPedido(e) {
+    e.preventDefault();
     if (carrinho.length === 0) {
       mostrarToast('Seu carrinho esta vazio!');
       return;
     }
     var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     if (isMobile) {
-      enviarWhatsApp('Cliente');
+      var mensagem = montarMensagem('Cliente');
+      var btn = document.getElementById('btn-finalizar-wpp');
+      btn.href = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
+      btn.removeAttribute('onclick');
+      btn.click();
     } else {
       var input = document.getElementById('input-nome-cliente');
       input.value = '';
@@ -458,7 +463,8 @@
       return;
     }
     fecharModalNome();
-    enviarWhatsApp(nome);
+    var mensagem = montarMensagem(nome);
+    window.location.href = 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem);
   }
 
   function mostrarToast(msg) {
