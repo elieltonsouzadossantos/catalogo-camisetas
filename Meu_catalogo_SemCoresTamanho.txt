@@ -17,6 +17,8 @@
       --branco: #fdfaf4;
     }
     body { font-family: 'Jost', sans-serif; background: var(--branco); color: var(--preto); min-height: 100vh; }
+
+    /* HEADER */
     header { position: sticky; top: 0; z-index: 100; background: var(--preto); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 70px; border-bottom: 1px solid rgba(184,154,90,0.4); }
     .logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--ouro2); }
     .logo span { color: #fff; font-weight: 400; }
@@ -26,17 +28,25 @@
     .busca-wrap input::placeholder { color: rgba(255,255,255,0.35); }
     .busca-wrap input:focus { border-color: var(--ouro); }
     .busca-wrap svg { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); opacity: 0.5; }
+
+    /* HERO */
     .hero { background: var(--preto); color: #fff; text-align: center; padding: 60px 20px 50px; border-bottom: 1px solid rgba(184,154,90,0.2); }
     .hero-eyebrow { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--ouro); margin-bottom: 16px; }
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 60px); font-weight: 400; letter-spacing: 2px; line-height: 1.1; margin-bottom: 16px; }
     .hero p { font-size: 13px; letter-spacing: 2px; color: rgba(255,255,255,0.5); text-transform: uppercase; }
     .hero-linha { width: 60px; height: 1px; background: var(--ouro); margin: 24px auto 0; }
+
+    /* FILTROS */
     .filtros-bar { background: var(--creme); border-bottom: 1px solid var(--cinza2); padding: 16px 40px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
     .filtros-bar label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cinza); white-space: nowrap; }
     .filtros-bar select { background: #fff; border: 1px solid var(--cinza2); color: var(--preto); padding: 7px 32px 7px 12px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1px; cursor: pointer; outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%236b6b6b' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; transition: border-color 0.2s; }
     .filtros-bar select:focus { border-color: var(--ouro); }
     .filtros-resultado { margin-left: auto; font-size: 12px; color: var(--cinza); letter-spacing: 1px; }
+
+    /* CATALOGO */
     .catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2px; padding: 2px; background: var(--cinza2); }
+
+    /* CARD */
     .produto { background: var(--branco); display: flex; flex-direction: column; transition: transform 0.2s; position: relative; overflow: hidden; }
     .produto:hover { z-index: 2; transform: scale(1.01); box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
     .badge { position: absolute; top: 14px; left: 14px; z-index: 3; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 1px; font-weight: 500; }
@@ -56,21 +66,10 @@
     .produto-info { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
     .produto h2 { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 500; line-height: 1.3; color: var(--preto); }
     .produto-desc { font-size: 12px; color: var(--cinza); letter-spacing: 0.5px; line-height: 1.5; }
-
-    /* TAMANHOS */
-    .tamanhos { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-    .tamanho-btn { background: none; border: 1px solid var(--cinza2); color: var(--cinza); padding: 4px 10px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 1px; cursor: pointer; transition: all 0.15s; }
-    .tamanho-btn:hover { border-color: var(--preto); color: var(--preto); }
-    .tamanho-btn.ativo { background: var(--preto); border-color: var(--preto); color: #fff; }
-
-    /* CORES */
-    .cores { display: flex; gap: 8px; align-items: center; }
-    .cor-btn { width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: all 0.15s; outline: none; }
-    .cor-btn:hover { transform: scale(1.15); }
-    .cor-btn.ativo { border-color: var(--preto); transform: scale(1.15); }
-
     .produto-rodape { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--cinza2); }
     .preco { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--preto); letter-spacing: 1px; }
+
+    /* BOTÃO COMPRAR WHATSAPP */
     .btn-comprar { display: flex; align-items: center; gap: 6px; background: #25d366; color: #fff; text-decoration: none; padding: 10px 16px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: background 0.2s; white-space: nowrap; }
     .btn-comprar:hover { background: #1ebe5d; color: #fff; }
     .btn-comprar svg { width: 14px; height: 14px; fill: #fff; flex-shrink: 0; }
@@ -85,18 +84,22 @@
     .zoom-fechar { background: none; border: 1px solid rgba(184,154,90,0.4); color: rgba(255,255,255,0.6); padding: 8px 28px; border-radius: 2px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; transition: all 0.2s; }
     .zoom-fechar:hover { border-color: var(--ouro); color: var(--ouro2); }
 
-    /* BOTÃO FLUTUANTE */
+    /* BOTÃO FLUTUANTE WHATSAPP */
     #wpp-float { position: fixed; bottom: 28px; right: 28px; z-index: 8000; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.5); transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; }
     #wpp-float:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(37,211,102,0.7); }
     #wpp-float svg { width: 32px; height: 32px; fill: #fff; }
     .wpp-tooltip { position: absolute; right: 70px; background: var(--preto); color: #fff; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 1px; white-space: nowrap; padding: 6px 12px; border-radius: 2px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
     #wpp-float:hover .wpp-tooltip { opacity: 1; }
 
+    /* RODAPE */
     footer { background: var(--preto); color: rgba(255,255,255,0.4); text-align: center; padding: 30px 20px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border-top: 1px solid rgba(184,154,90,0.2); }
     footer span { color: var(--ouro); }
+
+    /* SEM RESULTADO */
     .sem-resultado { grid-column: 1/-1; text-align: center; padding: 80px 20px; background: var(--branco); }
     .sem-resultado p { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--cinza); }
 
+    /* RESPONSIVO */
     @media (max-width: 700px) {
       header { padding: 0 16px; }
       .header-centro { display: none; }
@@ -111,6 +114,7 @@
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="logo">Loro<span> Masculina</span></div>
   <div class="header-centro">
@@ -121,6 +125,7 @@
   </div>
 </header>
 
+<!-- HERO -->
 <div class="hero">
   <p class="hero-eyebrow">Coleção 2026</p>
   <h1>Camisetas Masculinas</h1>
@@ -128,6 +133,7 @@
   <div class="hero-linha"></div>
 </div>
 
+<!-- FILTROS -->
 <div class="filtros-bar">
   <label>Filtrar por</label>
   <select id="filtro-categoria" onchange="aplicarFiltros()">
@@ -153,10 +159,13 @@
   <span class="filtros-resultado" id="resultado-count"></span>
 </div>
 
+<!-- CATALOGO -->
 <div class="catalogo" id="catalogo"></div>
 
+<!-- RODAPE -->
 <footer>&copy; 2026 <span>Loro Masculina</span> &mdash; Todos os direitos reservados</footer>
 
+<!-- BOTÃO FLUTUANTE WHATSAPP -->
 <a id="wpp-float" href="https://wa.me/5573991203415?text=Ol%C3%A1!%20Vim%20pelo%20cat%C3%A1logo%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" title="Fale conosco no WhatsApp">
   <span class="wpp-tooltip">Fale conosco</span>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -164,6 +173,7 @@
   </svg>
 </a>
 
+<!-- ZOOM MODAL -->
 <div id="zoom-overlay" onclick="fecharZoom()">
   <img id="zoom-img" src="" alt="">
   <div class="zoom-info">
@@ -177,25 +187,22 @@
   const MEU_WHATSAPP = '5573991203415';
 
   const produtos = [
-    { id:1,  nome:'Camiseta Masculina Basica',    desc:'Confortavel, ideal para o dia a dia.',      preco:49.90, cat:'basica',    img:'imagens/camiseta1.jpg',  badge:'novo',   estrelas:4, cores:['#0e0e0e','#ffffff','#1a3a5c','#8b1a1a'] },
-    { id:2,  nome:'Camiseta Polo Masculina',       desc:'Estilo casual e elegante.',                 preco:59.90, cat:'polo',      img:'imagens/camiseta2.jpg',  badge:'top',    estrelas:5, cores:['#0e0e0e','#ffffff','#2d6a2d'] },
-    { id:3,  nome:'Camiseta Estampada Masculina',  desc:'Design moderno e descontraido.',            preco:54.90, cat:'estampada', img:'imagens/camiseta3.jpg',  badge:'',       estrelas:4, cores:['#0e0e0e','#4a4a8a','#8b1a1a'] },
-    { id:4,  nome:'Camiseta Slim Fit',             desc:'Modelagem ajustada ao corpo.',              preco:64.90, cat:'especial',  img:'imagens/camiseta4.jpg',  badge:'novo',   estrelas:5, cores:['#0e0e0e','#ffffff','#1a3a5c'] },
-    { id:5,  nome:'Camiseta Longline Masculina',   desc:'Estilo urbano e moderno.',                  preco:69.90, cat:'especial',  img:'imagens/camiseta5.jpg',  badge:'',       estrelas:4, cores:['#0e0e0e','#4a4a4a','#8b1a1a'] },
-    { id:6,  nome:'Camiseta Regata Masculina',     desc:'Ideal para dias quentes.',                  preco:39.90, cat:'basica',    img:'imagens/camiseta6.jpg',  badge:'oferta', estrelas:3, cores:['#0e0e0e','#ffffff','#1a3a5c','#2d6a2d'] },
-    { id:7,  nome:'Camiseta Manga Longa',          desc:'Protecao e estilo em dias frios.',          preco:69.90, cat:'especial',  img:'imagens/camiseta7.jpg',  badge:'',       estrelas:4, cores:['#0e0e0e','#4a4a4a','#1a3a5c'] },
-    { id:8,  nome:'Camiseta Henley Masculina',     desc:'Detalhe de botoes na gola.',                preco:74.90, cat:'especial',  img:'imagens/camiseta8.jpg',  badge:'top',    estrelas:5, cores:['#0e0e0e','#ffffff','#8b1a1a'] },
-    { id:9,  nome:'Camiseta Oversized Masculina',  desc:'Estilo solto e confortavel.',               preco:59.90, cat:'especial',  img:'imagens/camiseta9.jpg',  badge:'novo',   estrelas:4, cores:['#0e0e0e','#c8b89a','#4a4a8a'] },
-    { id:10, nome:'Camiseta V-Neck Masculina',     desc:'Decote em V para estilo moderno.',          preco:49.90, cat:'basica',    img:'imagens/camiseta10.jpg', badge:'',       estrelas:3, cores:['#0e0e0e','#ffffff','#1a3a5c'] },
-    { id:11, nome:'Camiseta Gola Careca',          desc:'Classica e versatil.',                      preco:44.90, cat:'basica',    img:'imagens/camiseta11.jpg', badge:'',       estrelas:4, cores:['#0e0e0e','#ffffff','#8b1a1a','#2d6a2d'] },
-    { id:12, nome:'Camiseta Dry Fit Masculina',    desc:'Ideal para atividades esportivas.',         preco:79.90, cat:'esportiva', img:'imagens/camiseta12.jpg', badge:'top',    estrelas:5, cores:['#0e0e0e','#1a3a5c','#2d6a2d','#8b1a1a'] },
-    { id:13, nome:'Camiseta Listrada Masculina',   desc:'Estilo casual com listras.',                preco:59.90, cat:'estampada', img:'imagens/camiseta13.jpg', badge:'',       estrelas:3, cores:['#0e0e0e','#ffffff','#1a3a5c'] },
-    { id:14, nome:'Camiseta Premium Masculina',    desc:'Alta qualidade e conforto.',                preco:89.90, cat:'especial',  img:'imagens/camiseta14.jpg', badge:'top',    estrelas:5, cores:['#0e0e0e','#ffffff','#1a3a5c','#8b1a1a'] },
-    { id:15, nome:'Camiseta Casual Masculina',     desc:'Versatil para qualquer ocasiao.',           preco:59.90, cat:'basica',    img:'imagens/camiseta15.jpg', badge:'',       estrelas:4, cores:['#0e0e0e','#ffffff','#4a4a4a'] },
+    { id:1,  nome:'Camiseta Masculina Basica',    desc:'Confortavel, ideal para o dia a dia.',      preco:49.90, cat:'basica',    img:'imagens/camiseta1.jpg',  badge:'novo',   estrelas:4 },
+    { id:2,  nome:'Camiseta Polo Masculina',       desc:'Estilo casual e elegante.',                 preco:59.90, cat:'polo',      img:'imagens/camiseta2.jpg',  badge:'top',    estrelas:5 },
+    { id:3,  nome:'Camiseta Estampada Masculina',  desc:'Design moderno e descontraido.',            preco:54.90, cat:'estampada', img:'imagens/camiseta3.jpg',  badge:'',       estrelas:4 },
+    { id:4,  nome:'Camiseta Slim Fit',             desc:'Modelagem ajustada ao corpo.',              preco:64.90, cat:'especial',  img:'imagens/camiseta4.jpg',  badge:'novo',   estrelas:5 },
+    { id:5,  nome:'Camiseta Longline Masculina',   desc:'Estilo urbano e moderno.',                  preco:69.90, cat:'especial',  img:'imagens/camiseta5.jpg',  badge:'',       estrelas:4 },
+    { id:6,  nome:'Camiseta Regata Masculina',     desc:'Ideal para dias quentes.',                  preco:39.90, cat:'basica',    img:'imagens/camiseta6.jpg',  badge:'oferta', estrelas:3 },
+    { id:7,  nome:'Camiseta Manga Longa',          desc:'Protecao e estilo em dias frios.',          preco:69.90, cat:'especial',  img:'imagens/camiseta7.jpg',  badge:'',       estrelas:4 },
+    { id:8,  nome:'Camiseta Henley Masculina',     desc:'Detalhe de botoes na gola.',                preco:74.90, cat:'especial',  img:'imagens/camiseta8.jpg',  badge:'top',    estrelas:5 },
+    { id:9,  nome:'Camiseta Oversized Masculina',  desc:'Estilo solto e confortavel.',               preco:59.90, cat:'especial',  img:'imagens/camiseta9.jpg',  badge:'novo',   estrelas:4 },
+    { id:10, nome:'Camiseta V-Neck Masculina',     desc:'Decote em V para estilo moderno.',          preco:49.90, cat:'basica',    img:'imagens/camiseta10.jpg', badge:'',       estrelas:3 },
+    { id:11, nome:'Camiseta Gola Careca',          desc:'Classica e versatil.',                      preco:44.90, cat:'basica',    img:'imagens/camiseta11.jpg', badge:'',       estrelas:4 },
+    { id:12, nome:'Camiseta Dry Fit Masculina',    desc:'Ideal para atividades esportivas.',         preco:79.90, cat:'esportiva', img:'imagens/camiseta12.jpg', badge:'top',    estrelas:5 },
+    { id:13, nome:'Camiseta Listrada Masculina',   desc:'Estilo casual com listras.',                preco:59.90, cat:'estampada', img:'imagens/camiseta13.jpg', badge:'',       estrelas:3 },
+    { id:14, nome:'Camiseta Premium Masculina',    desc:'Alta qualidade e conforto.',                preco:89.90, cat:'especial',  img:'imagens/camiseta14.jpg', badge:'top',    estrelas:5 },
+    { id:15, nome:'Camiseta Casual Masculina',     desc:'Versatil para qualquer ocasiao.',           preco:59.90, cat:'basica',    img:'imagens/camiseta15.jpg', badge:'',       estrelas:4 },
   ];
-
-  var tamanhos = ['P', 'M', 'G', 'GG'];
-  var selecoes = {}; // guarda tamanho e cor selecionados por produto
 
   function renderEstrelas(n) {
     return [1,2,3,4,5].map(i => '<span class="estrela' + (i > n ? ' vazia' : '') + '">&#9733;</span>').join('');
@@ -211,74 +218,9 @@
     return 'R$ ' + v.toFixed(2).replace('.', ',');
   }
 
-  function nomeCor(hex) {
-    var mapa = {
-      '#0e0e0e': 'Preta',
-      '#ffffff': 'Branca',
-      '#1a3a5c': 'Azul Marinho',
-      '#8b1a1a': 'Vermelha',
-      '#2d6a2d': 'Verde',
-      '#4a4a4a': 'Cinza',
-      '#4a4a8a': 'Azul Royal',
-      '#c8b89a': 'Bege'
-    };
-    return mapa[hex] || hex;
-  }
-
-  function gerarLink(id) {
-    var p = produtos.find(function(x){ return x.id === id; });
-    var sel = selecoes[id] || {};
-    var tamanho = sel.tamanho || 'nao informado';
-    var cor = sel.cor ? nomeCor(sel.cor) : 'nao informada';
-    var preco = formatarPreco(p.preco);
-    var texto = 'Ola! Tenho interesse na ' + p.nome +
-      ' — Tamanho: ' + tamanho +
-      ' — Cor: ' + cor +
-      ' — Preco: ' + preco +
-      '. Poderia confirmar disponibilidade?';
+  function gerarLinkWpp(nome, preco) {
+    var texto = 'Ola! Tenho interesse na ' + nome + ' por ' + preco + '. Poderia me dar mais informacoes?';
     return 'https://wa.me/' + MEU_WHATSAPP + '?text=' + encodeURIComponent(texto);
-  }
-
-  function selecionarTamanho(id, tam) {
-    if (!selecoes[id]) selecoes[id] = {};
-    selecoes[id].tamanho = tam;
-    var btns = document.querySelectorAll('#tam-' + id + ' .tamanho-btn');
-    btns.forEach(function(b){ b.classList.remove('ativo'); });
-    document.getElementById('tam-' + id + '-' + tam).classList.add('ativo');
-    atualizarLink(id);
-  }
-
-  function selecionarCor(id, cor) {
-    if (!selecoes[id]) selecoes[id] = {};
-    selecoes[id].cor = cor;
-    var btns = document.querySelectorAll('#cor-' + id + ' .cor-btn');
-    btns.forEach(function(b){ b.classList.remove('ativo'); });
-    document.getElementById('cor-' + id + '-' + cor.replace('#','')).classList.add('ativo');
-    atualizarLink(id);
-  }
-
-  function atualizarLink(id) {
-    var link = document.getElementById('link-' + id);
-    if (link) link.href = gerarLink(id);
-  }
-
-  function renderTamanhos(id) {
-    var html = '<div class="tamanhos" id="tam-' + id + '">';
-    tamanhos.forEach(function(t) {
-      html += '<button class="tamanho-btn" id="tam-' + id + '-' + t + '" onclick="selecionarTamanho(' + id + ',\'' + t + '\')">' + t + '</button>';
-    });
-    html += '</div>';
-    return html;
-  }
-
-  function renderCores(id, cores) {
-    var html = '<div class="cores" id="cor-' + id + '">';
-    cores.forEach(function(c) {
-      var borda = c === '#ffffff' ? 'border:2px solid #e8e3d8;' : '';
-      html += '<button class="cor-btn" id="cor-' + id + '-' + c.replace('#','') + '" style="background:' + c + ';' + borda + '" onclick="selecionarCor(' + id + ',\'' + c + '\')" title="' + nomeCor(c) + '"></button>';
-    });
-    html += '</div>';
-    return html;
   }
 
   function renderProdutos(lista) {
@@ -291,7 +233,7 @@
     }
     el.innerHTML = lista.map(function(p) {
       var precoFormatado = formatarPreco(p.preco);
-      var linkInicial = gerarLink(p.id);
+      var linkWpp = gerarLinkWpp(p.nome, precoFormatado);
       return '<div class="produto" id="prod-' + p.id + '">' +
         renderBadge(p.badge) +
         '<div class="img-wrap" onclick="abrirZoom(\'' + p.img + '\',\'' + p.nome + '\',\'' + precoFormatado + '\')">' +
@@ -302,11 +244,9 @@
           '<h2>' + p.nome + '</h2>' +
           '<div class="estrelas">' + renderEstrelas(p.estrelas) + '</div>' +
           '<p class="produto-desc">' + p.desc + '</p>' +
-          renderTamanhos(p.id) +
-          renderCores(p.id, p.cores) +
           '<div class="produto-rodape">' +
             '<span class="preco">' + precoFormatado + '</span>' +
-            '<a id="link-' + p.id + '" class="btn-comprar" href="' + linkInicial + '" target="_blank">' +
+            '<a class="btn-comprar" href="' + linkWpp + '" target="_blank">' +
               '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.494 2.027 7.807L0 32l8.418-2.01A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.74-1.833l-.484-.287-5.002 1.194 1.227-4.87-.316-.502A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.352-1.16-2.717-1.292-.364-.133-.63-.199-.895.199-.265.398-1.028 1.292-1.26 1.558-.232.265-.464.298-.862.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.056-1.983-2.36-2.215-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.697.2-.232.265-.398.398-.663.133-.265.066-.497-.033-.697-.1-.199-.895-2.157-1.227-2.953-.323-.775-.65-.67-.895-.683l-.762-.013c-.265 0-.696.1-1.06.497-.364.398-1.39 1.358-1.39 3.313 0 1.955 1.423 3.844 1.622 4.109.199.265 2.8 4.274 6.786 5.993.949.41 1.69.654 2.267.838.952.303 1.819.26 2.504.158.764-.114 2.352-.962 2.684-1.89.332-.928.332-1.724.232-1.89-.1-.166-.364-.265-.762-.464z"/></svg>' +
               ' Comprar' +
             '</a>' +
