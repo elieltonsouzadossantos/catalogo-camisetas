@@ -71,14 +71,15 @@
     .btn-comprar svg { width: 14px; height: 14px; fill: #fff; flex-shrink: 0; }
 
     /* DEPOIMENTOS */
-    .depoimentos { background: var(--creme); padding: 70px 40px; text-align: center; }
+    .depoimentos { background: var(--creme); padding: 70px 40px; text-align: center; overflow: hidden; }
     .dep-topo { margin-bottom: 48px; }
     .dep-eyebrow { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--ouro); margin-bottom: 12px; }
     .dep-titulo { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 4vw, 38px); font-weight: 400; color: var(--preto); letter-spacing: 2px; margin-bottom: 16px; }
     .dep-linha { width: 50px; height: 1px; background: var(--ouro); margin: 0 auto; }
-    .dep-wrapper { position: relative; display: flex; align-items: center; max-width: 1100px; margin: 0 auto; gap: 16px; overflow: hidden; }
-    .dep-trilho { display: flex; gap: 20px; width: 100%; transition: transform 0.4s ease; }
-    .dep-card { background: var(--branco); border: 1px solid var(--cinza2); border-radius: 4px; padding: 32px 28px; min-width: calc(33.333% - 14px); flex-shrink: 0; text-align: left; transition: box-shadow 0.2s; }
+    .dep-wrapper { position: relative; display: flex; align-items: center; max-width: 1100px; margin: 0 auto; gap: 16px; }
+    .dep-viewport { overflow: hidden; width: 100%; }
+    .dep-trilho { display: flex; gap: 20px; transition: transform 0.4s ease; will-change: transform; }
+    .dep-card { background: var(--branco); border: 1px solid var(--cinza2); border-radius: 4px; padding: 32px 28px; flex-shrink: 0; text-align: left; transition: box-shadow 0.2s; }
     .dep-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
     .dep-estrelas { color: var(--ouro); font-size: 18px; letter-spacing: 3px; margin-bottom: 16px; }
     .dep-texto { font-size: 13px; color: var(--cinza); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
@@ -124,7 +125,6 @@
       .hero { padding: 40px 16px 32px; }
       #wpp-float { bottom: 18px; right: 18px; width: 52px; height: 52px; }
       .depoimentos { padding: 50px 16px; }
-      .dep-card { min-width: 100%; }
       .dep-seta { display: none; }
     }
     @media (min-width: 701px) and (max-width: 900px) {
@@ -187,70 +187,54 @@
   </div>
   <div class="dep-wrapper">
     <button class="dep-seta" onclick="moverDep(-1)">&#8592;</button>
-    <div class="dep-trilho" id="dep-trilho">
-      <div class="dep-card">
-        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="dep-texto">"Qualidade incrível! A camiseta chegou rápido, o tecido é macio e o caimento é perfeito. Com certeza voltarei a comprar mais vezes!"</p>
-        <div class="dep-autor">
-          <div class="dep-avatar">LM</div>
-          <div>
-            <p class="dep-nome">Lucas Mendes</p>
-            <p class="dep-cargo">Cliente</p>
+    <div class="dep-viewport">
+      <div class="dep-trilho" id="dep-trilho">
+        <div class="dep-card">
+          <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="dep-texto">"Qualidade incrível! A camiseta chegou rápido, o tecido é macio e o caimento é perfeito. Com certeza voltarei a comprar mais vezes!"</p>
+          <div class="dep-autor">
+            <div class="dep-avatar">LM</div>
+            <div><p class="dep-nome">Lucas Mendes</p><p class="dep-cargo">Cliente</p></div>
           </div>
         </div>
-      </div>
-      <div class="dep-card">
-        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="dep-texto">"Atendimento excelente e entrega super rápida. A Camiseta Polo superou minhas expectativas, recomendo demais para todos!"</p>
-        <div class="dep-autor">
-          <div class="dep-avatar">FS</div>
-          <div>
-            <p class="dep-nome">Fernando Silva</p>
-            <p class="dep-cargo">Cliente</p>
+        <div class="dep-card">
+          <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="dep-texto">"Atendimento excelente e entrega super rápida. A Camiseta Polo superou minhas expectativas, recomendo demais para todos!"</p>
+          <div class="dep-autor">
+            <div class="dep-avatar">FS</div>
+            <div><p class="dep-nome">Fernando Silva</p><p class="dep-cargo">Cliente</p></div>
           </div>
         </div>
-      </div>
-      <div class="dep-card">
-        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="dep-texto">"Melhor loja de camisetas que já comprei! Produto de alta qualidade, preço justo e atendimento nota 10. Parabéns pela excelência!"</p>
-        <div class="dep-autor">
-          <div class="dep-avatar">RC</div>
-          <div>
-            <p class="dep-nome">Rafael Costa</p>
-            <p class="dep-cargo">Cliente</p>
+        <div class="dep-card">
+          <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="dep-texto">"Melhor loja de camisetas que já comprei! Produto de alta qualidade, preço justo e atendimento nota 10. Parabéns pela excelência!"</p>
+          <div class="dep-autor">
+            <div class="dep-avatar">RC</div>
+            <div><p class="dep-nome">Rafael Costa</p><p class="dep-cargo">Cliente</p></div>
           </div>
         </div>
-      </div>
-      <div class="dep-card">
-        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="dep-texto">"Comprei a Camiseta Slim Fit e fiquei impressionado com a qualidade. Ficou perfeita no corpo e as cores são lindas. Super recomendo!"</p>
-        <div class="dep-autor">
-          <div class="dep-avatar">AM</div>
-          <div>
-            <p class="dep-nome">André Martins</p>
-            <p class="dep-cargo">Cliente</p>
+        <div class="dep-card">
+          <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="dep-texto">"Comprei a Camiseta Slim Fit e fiquei impressionado com a qualidade. Ficou perfeita no corpo e as cores são lindas. Super recomendo!"</p>
+          <div class="dep-autor">
+            <div class="dep-avatar">AM</div>
+            <div><p class="dep-nome">André Martins</p><p class="dep-cargo">Cliente</p></div>
           </div>
         </div>
-      </div>
-      <div class="dep-card">
-        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="dep-texto">"Produto chegou antes do prazo, embalagem caprichada e a camiseta é lindíssima. Já indiquei para vários amigos e todos adoraram!"</p>
-        <div class="dep-autor">
-          <div class="dep-avatar">JP</div>
-          <div>
-            <p class="dep-nome">João Pedro</p>
-            <p class="dep-cargo">Cliente</p>
+        <div class="dep-card">
+          <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="dep-texto">"Produto chegou antes do prazo, embalagem caprichada e a camiseta é lindíssima. Já indiquei para vários amigos e todos adoraram!"</p>
+          <div class="dep-autor">
+            <div class="dep-avatar">JP</div>
+            <div><p class="dep-nome">João Pedro</p><p class="dep-cargo">Cliente</p></div>
           </div>
         </div>
-      </div>
-      <div class="dep-card">
-        <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="dep-texto">"Comprei a Dry Fit para academia e amei! Tecido leve, confortável e não deforma após as lavagens. Vale muito o investimento!"</p>
-        <div class="dep-autor">
-          <div class="dep-avatar">GT</div>
-          <div>
-            <p class="dep-nome">Gabriel Torres</p>
-            <p class="dep-cargo">Cliente</p>
+        <div class="dep-card">
+          <div class="dep-estrelas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="dep-texto">"Comprei a Dry Fit para academia e amei! Tecido leve, confortável e não deforma após as lavagens. Vale muito o investimento!"</p>
+          <div class="dep-autor">
+            <div class="dep-avatar">GT</div>
+            <div><p class="dep-nome">Gabriel Torres</p><p class="dep-cargo">Cliente</p></div>
           </div>
         </div>
       </div>
@@ -317,7 +301,7 @@
   }
 
   function nomeCor(hex) {
-    var mapa = { '#0e0e0e':'Preta', '#ffffff':'Branca', '#1a3a5c':'Azul Marinho', '#8b1a1a':'Vermelha', '#2d6a2d':'Verde', '#4a4a4a':'Cinza', '#4a4a8a':'Azul Royal', '#c8b89a':'Bege' };
+    var mapa = { '#0e0e0e':'Preta','#ffffff':'Branca','#1a3a5c':'Azul Marinho','#8b1a1a':'Vermelha','#2d6a2d':'Verde','#4a4a4a':'Cinza','#4a4a8a':'Azul Royal','#c8b89a':'Bege' };
     return mapa[hex] || hex;
   }
 
@@ -435,7 +419,21 @@
     return Math.ceil(6 / depPorTela());
   }
 
+  function calcularCards() {
+    var viewport = document.querySelector('.dep-viewport');
+    var trilho = document.getElementById('dep-trilho');
+    if (!viewport || !trilho) return;
+    var n = depPorTela();
+    var vw = viewport.offsetWidth;
+    var cardW = (vw - (20 * (n - 1))) / n;
+    trilho.querySelectorAll('.dep-card').forEach(function(c){
+      c.style.width = cardW + 'px';
+    });
+    return cardW;
+  }
+
   function iniciarBolinhas() {
+    depAtual = 0;
     var cont = document.getElementById('dep-bolinhas');
     cont.innerHTML = '';
     for (var i = 0; i < totalPaginas(); i++) {
@@ -445,6 +443,8 @@
       b.addEventListener('click', function(){ irDep(Number(this.getAttribute('data-idx'))); });
       cont.appendChild(b);
     }
+    calcularCards();
+    aplicarDep();
   }
 
   function moverDep(direcao) {
@@ -460,17 +460,18 @@
   }
 
   function aplicarDep() {
+    var cardW = calcularCards();
     var trilho = document.getElementById('dep-trilho');
-    var card = trilho.querySelector('.dep-card');
-    if (!card) return;
-    var larguraCard = card.offsetWidth + 20;
-    trilho.style.transform = 'translateX(-' + (depAtual * depPorTela() * larguraCard) + 'px)';
+    if (!trilho || !cardW) return;
+    var n = depPorTela();
+    var offset = depAtual * n * (cardW + 20);
+    trilho.style.transform = 'translateX(-' + offset + 'px)';
     document.querySelectorAll('.dep-bolinha').forEach(function(b, i){
       b.classList.toggle('ativa', i === depAtual);
     });
   }
 
-  window.addEventListener('resize', function(){ depAtual = 0; iniciarBolinhas(); aplicarDep(); });
+  window.addEventListener('resize', function(){ iniciarBolinhas(); });
 
   renderProdutos(produtos);
   iniciarBolinhas();
